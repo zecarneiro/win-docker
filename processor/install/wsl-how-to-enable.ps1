@@ -1,7 +1,3 @@
-$NAME="Windows Subsystem for Linux"
-$DESCRIPTION=""
-$IS_DISABLED=$false
-
 function win10 {
     titlelog "For Windows 10"
     log "1. Enable Virtual Machine Platform feature"
@@ -22,20 +18,14 @@ function win11 {
     pause
 }
 
-
-function process_ms {
-    win10
-    log
-    log
-    win11
-    log
-    infolog "To see all distro available, run: wsl --list --online"
-    if ((confirm "Do you want to install Ubuntu 24.04 LTS on WSL")) {
-        infolog "After installing, run command: exit"
-        evaladvanced "wsl --install -d Ubuntu-24.04"
-        runBashScriptWSL "$MS_PLATFORM_BIN_DIR\wsl\first-install-ubuntu.sh" $true
-        wslshutdown
-        add_boot_application "wsl-boot" "wsl" "-- echo `"Running WSL`"" -hidden
+function process_wsl_enable {
+    headerlog "How to enable WSL on Windows"
+    if ((confirm "See how for Windows 10")) {
+        win10
+        log
+    }
+    if ((confirm "See how for Windows 11")) {
+        win11
+        log
     }
 }
-

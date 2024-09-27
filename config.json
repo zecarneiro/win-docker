@@ -1,0 +1,5 @@
+{
+    "distroMaxMemoryAvailable": null,
+    "distroMaxProcessorAvailable": null,
+    "dockerComposeVersion": "2.24.6"
+}
